@@ -68,5 +68,14 @@ while(counter<=maxPower+1)
 end
     help(maxPower+1,5)=help(maxPower,5);
     coefficients =help;
+    [r,c] = size(coefficients);
+    for i = 1: r
+        for j = 1 : c
+            if(isnan(coefficients(i,j))||isinf(coefficients(i,j)))
+                assert('error');
+            end
+        end
+    end
+  
 end
 

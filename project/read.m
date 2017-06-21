@@ -6,7 +6,7 @@ function read(handles,hObject)
     fileID = fopen(fullfile(PathName,FileName),'r');
     %fileID = fopen(FileName,'r');
     methodName = fgetl(fileID);
-    if(strcmp(methodName,'Bisection') ||strcmp(methodName,'False-position') ||strcmp(methodName,'Fixed point')||STRCMP(methodName,'Newton-Raphson') ||strcmp(tline,'Secant')||strcmp(methodName,'Bierge-vieta'))
+    if(strcmp(methodName,'Bisection') ||strcmp(methodName,'False-position') ||strcmp(methodName,'Fixed point')||strcmp(methodName,'Newton-Raphson') ||strcmp(methodName,'Secant')||strcmp(methodName,'Bierge-vieta')||strcmp(methodName,'General'))
         handles.cell = methodName;
     end
     tline = fgetl(fileID);

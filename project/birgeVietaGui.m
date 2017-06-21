@@ -1,4 +1,4 @@
-function numberOfIterations = birgeVietaGui (f,iterations,tolerance,handles)
+function numberOfIterations = birgeVietaGui (f,iterations,tolerance,handles,label)
  x0 =  get(handles.edit10,'String');
            if(isempty(x0))
                 return
@@ -12,8 +12,15 @@ function numberOfIterations = birgeVietaGui (f,iterations,tolerance,handles)
                     set(handles.uitable1,'ColumnName',{'iterations', 'power from maximum power to 0', 'a','b','c','x','error','time'});
                     set(handles.uitable1,'data',tableData); 
                     numberOfIterations = tableData;
-                    plot(tableData(:,1),tableData(:,6),'k')
-                    hold on;
+                    if(strcmp(label,'All methods'))
+                         plot(tableData(:,1),tableData(:,6),'k')
+                         hold on;
+                    else
+                        tem = sym(f);
+                        dfn = diff(tem);
+                        tempdfn = dfn;
+                        derivatePlot(f,tableData,6);
+                    end
                 end
                 %nothing to be ploted.
            end

@@ -50,7 +50,7 @@ function [data1,data2] = fixedAndNewton(f,iterations,tolerance,handles,hObject)
                    [err2,tableData] = Fixed(f,x0,tolerance , iterations);
                     if(err2 == 1)
                         set(handles.text6,'String','FixedPoint');
-                        set(handles.text5,'String','may be converge or may be diverge');
+                        set(handles.text5,'String','diverge');
                     else
                        %don't understand '(x2-x1)/x2'
                        set(handles.text6,'String','FixedPoint');

@@ -14,7 +14,7 @@ tic;
 try
 help=parsing(func,x0);
 catch ME
-    table='Error division by 0';
+    table='Error';
     condition=0;
     return;
 end

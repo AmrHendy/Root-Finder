@@ -283,20 +283,21 @@ else
     end
 end
      if(strcmp(cell , 'Bisection') ||strcmp( cell , 'False-position'))
+           cla;
            biAndFalse(f,iterations,tolerance,handles,hObject);%done.
     elseif(strcmp (cell , 'Fixed point') || strcmp (cell , 'Newton-Raphson'))
            fixedAndNewton(f,iterations,tolerance,handles,hObject);%done
     elseif(strcmp(cell , 'Secant'))
-           secantGui(f,iterations,tolerance,handles);%done
+           secantGui(f,iterations,tolerance,handles,' ');%done
     elseif(strcmp(cell , 'All methods'))
           [dataBisection,dataFalse] = biAndFalse(f,iterations,tolerance,handles);
           [dataFixed,dataNewton] = fixedAndNewton(f,iterations,tolerance,handles,hObject);
-          dataSecant =secantGui(f,iterations,tolerance,handles);
-          dataBirgeVieta = birgeVietaGui(f,iterations,tolerance,handles);
+          dataSecant =secantGui(f,iterations,tolerance,handles,'All methods');
+          dataBirgeVieta = birgeVietaGui(f,iterations,tolerance,handles,'All methods');
           %plotAllMethod(dataBisection,dataFalse,dataFixed,dataNewton,dataSecant,dataBirgeVieta);
           set(handles.uitable1,'visible','off');
     elseif(strcmp(cell , 'Bierge-Vieta'))
-           birgeVietaGui (f,iterations,tolerance,handles);
+           birgeVietaGui (f,iterations,tolerance,handles,' ');
     elseif(strcmp(cell , 'General'))
            out = General(f,.1,tolerance,-100,100,handles);
            set(handles.uitable1,'visible','on');
@@ -460,6 +461,7 @@ function Untitled_1_Callback(hObject, eventdata, handles)
 
 % --- Executes on button press in pushbutton4.
 function pushbutton4_Callback(hObject, eventdata, handles)
+    cla;
     tableData = handles.tableData;
     i = handles.i;
     handles.i = handles.i;
@@ -482,6 +484,7 @@ function pushbutton4_Callback(hObject, eventdata, handles)
 
 % --- Executes on button press in pushbutton5.
 function pushbutton5_Callback(hObject, eventdata, handles)
+    cla;
     tableData = handles.tableData;
     i = handles.i;
     handles.i = handles.i;
